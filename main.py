@@ -37,8 +37,8 @@ class Camo:
 		if r.headers['Content-Type'] is None or r.headers['Content-Type'][:5] != 'image':
 			print "Non image content-type returned: %s" % r.headers['Content-Type']
 
-		if r.headers['Content-Length'] is not None and r.headers['Content-Length'] > self.MAX_SIZE:
-			print "Max content-length of %s exceeded, resource was %s bytes long" % (self.MAX_SIZE, r.headers['Content-Length'])
+		if r.headers['Content-Length'] is None or r.headers['Content-Length'] > self.MAX_SIZE:
+			print "Max content-length of %s exceeded or not set, resource was %s bytes long" % (self.MAX_SIZE, r.headers['Content-Length'])
 
 		print r.headers['thisdoesntexist']
 
