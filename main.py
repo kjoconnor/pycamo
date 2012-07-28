@@ -36,7 +36,8 @@ class Camo:
 		if r.headers['Content-Type'][:5] != 'image':
 			print "Non image content-type returned: %s" % r.headers['Content-Type']
 
-		print r.headers['Content-Type']
+		for item in r.headers:
+			print item
 
 	def verify_url(self, url):
 		parsed_url = urlparse(url)
