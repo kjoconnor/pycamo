@@ -35,7 +35,7 @@ class Camo:
 
 		content = r.content
 
-		print content
+		print r.headers['Content-Type']
 
 	def verify_url(self, url):
 		parsed_url = urlparse(url)
