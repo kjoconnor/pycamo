@@ -33,7 +33,8 @@ class Camo:
 			print "Non-200 returned: %s" % r.status_code
 			return False
 
-		content = r.content
+		if r.headers['Content-Type'][:5] != 'image':
+			print "Non image content-type returned: %s" % r.headers['Content-Type']
 
 		print r.headers['Content-Type']
 
