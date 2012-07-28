@@ -17,14 +17,14 @@ class Camo:
 
 	def retrieve_url(self, url):
 		try:
-			content = urllib.urlopen(url)
+			r = requests.get(url)
 		except Exception, e:
 			print "Exception caught: %s" % e
 			return False
 
-		if content.code != 200:
-			print "Bad code returned: %s" % content.code
-			return False
+		content = r.content
+
+		print content
 
 	def verify_url(self, url):
 		parsed_url = urlparse(url)
