@@ -9,6 +9,8 @@ url = 'https://i2.cdn.turner.com/cnn/dam/assets/120727064412-olympics-begin-7-27
 
 class Camo:
 
+	self.TIMEOUT = 5;
+
 	def unhex_url(self, url):
 		return binascii.a2b_hex(url)
 
@@ -17,7 +19,7 @@ class Camo:
 
 	def retrieve_url(self, url):
 		try:
-			r = requests.get(url)
+			r = requests.get(url, timeout=self.TIMEOUT)
 		except Exception, e:
 			print "Exception caught: %s" % e
 			return False
