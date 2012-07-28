@@ -2,10 +2,14 @@ import hashlib
 import binascii
 from urlparse import urlparse
 import requests
+import sys
 
 CAMO_SHARED_KEY = '9AFJIjnaoijF*JFAHjfmvc'
 
-url = 'https://i2.cdn.turner.com/cnn/dam/assets/120727064412-olympics-begin-7-27-06-video-tease.jpg'
+if len(sys.argv > 1):
+	url = sys.argv[1]
+else:
+	url = 'http://i2.cdn.turner.com/cnn/dam/assets/120727064412-olympics-begin-7-27-06-video-tease.jpg'
 
 class Camo:
 
