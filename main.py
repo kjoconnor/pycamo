@@ -15,6 +15,7 @@ class Camo:
 
 	def __init__(self):
 		self.TIMEOUT = 5;
+		self.MAX_SIZE = 5 * 1024 * 1024; # 5 Megabytes
 
 	def unhex_url(self, url):
 		return binascii.a2b_hex(url)
@@ -36,8 +37,10 @@ class Camo:
 		if r.headers['Content-Type'][:5] != 'image':
 			print "Non image content-type returned: %s" % r.headers['Content-Type']
 
-		for item in r.headers:
-			print item
+		if r.headers['content-length'] > self.MAX_SIZE:
+			print "Max content-length of %s exceeded, resource was %s bytes long" % (self.MAX_SIZE, r.headers['content-length'])
+
+		print r.headers['thisdoesntexist']
 
 	def verify_url(self, url):
 		parsed_url = urlparse(url)
