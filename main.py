@@ -9,7 +9,8 @@ url = 'https://i2.cdn.turner.com/cnn/dam/assets/120727064412-olympics-begin-7-27
 
 class Camo:
 
-	self.TIMEOUT = 5;
+	def __init__():
+		self.TIMEOUT = 5;
 
 	def unhex_url(self, url):
 		return binascii.a2b_hex(url)
