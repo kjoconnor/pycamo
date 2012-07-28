@@ -29,6 +29,10 @@ class Camo:
 			print "Exception caught: %s" % e
 			return False
 
+		if r.status_code != 200:
+			print "Non-200 returned: %s" % r.status_code
+			return False
+
 		content = r.content
 
 		print content
